@@ -14,14 +14,25 @@ function InputBox(props)
 
     function SendMessage()
     {
-        props.setChatMessages([
+        const newChatMessages=[
             ...props.ChatMessages,
             {
             message:chatInput,
             sender:"user",
             id:crypto.randomUUID()
             }
-    ])
+        ]
+       props. setChatMessages(newChatMessages)
+        const robotOutput=chatbot.getResponse(chatInput);
+        props.setChatMessages([
+            ...newChatMessages,
+            {
+            message:robotOutput,
+            sender:"robot",
+            id:crypto.randomUUID()
+            }
+        ])
+
         setChatInput('')
     }
 
