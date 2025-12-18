@@ -6,7 +6,7 @@ import InputBox from "./component/InputBox.jsx"
 import ChatMessages from './component/ChatMessages.jsx'
 function App() {
   const [count, setCount] = useState(0)
-  
+   
   return (
     <>
        <InputBox />

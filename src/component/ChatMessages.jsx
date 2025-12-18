@@ -1,30 +1,30 @@
+import { useState } from "react"
 import ChatMessage from "./ChatMessage"
 function ChatMessages()
 {
-    const ChatMessages=[
-        {
-        message:"Hello",
-        sender:"user"
-        },
-        {
-          message:"how May I help You?",
-          sender:"robot"
-        },
-        {
-          message:"what is Ai?",
-          sender:"user"
-        },
-        {
-          message:"your Servent",
-          sender:"robot"
-        },
-    ]
+
+    let [ChatMessages,setChatMessages]=useState([
+       
+    ])
+
+    function SendMessage()
+    {
+        setChatMessages([
+            ...ChatMessages,
+            {
+            message:"Test",
+            sender:"user",
+            id:crypto.randomUUID()
+            }
+    ])
+        console.log(ChatMessages)
+    }
 
     const messageComponent= ChatMessages.map(
         (x)=>{
           return(
             <>
-              <ChatMessage message= {x.message} sender={x.sender}></ChatMessage>
+              <ChatMessage message= {x.message} sender={x.sender} id= {x.id}></ChatMessage>
             </>
           )
         }
@@ -33,6 +33,7 @@ function ChatMessages()
       return (
         <>
             {messageComponent}
+            <button onClick={SendMessage}></button>
         </>
       )
 
