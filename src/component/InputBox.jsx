@@ -22,11 +22,12 @@ function InputBox(props)
             id:crypto.randomUUID()
             }
     ])
+        setChatInput('')
     }
 
     return (
         <>
-        <input placeholder="Send The Message" onChange={ChatInput} />
+        <input placeholder="Send The Message" onChange={ChatInput} value={chatInput} />
         <button onClick={SendMessage}>Send</button>
         </>
     )
